@@ -1,0 +1,140 @@
+#logoBar {
+    background: #f6f6f6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 12px rgba(178, 197, 211, 59);
+}
+
+.menuHamburger {
+    transform: rotate(0deg);
+    transition: 0.5s ease;
+}
+
+.menuHamburger span {
+    height: 4px;
+    width: 30px;
+    border-radius: 10px;
+    background: #fff;
+    display: block;
+    transform: rotate(0deg);
+    transition: all 0.5s ease;
+}
+
+.menuHamburger span:nth-child(2) {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    transition: 0.3s ease;
+    transition-delay: 0.3s;
+}
+
+.hamburgerActive {
+    transform: rotate(359deg);
+    transition: 0.8s ease;
+}
+
+.hamburgerActive span {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(50% - 15px);
+}
+
+.hamburgerActive span:nth-child(1) {
+    transform: rotate(45deg);
+    transition: ease 0.5s;
+}
+
+.hamburgerActive span:nth-child(2) {
+    transition-delay: 0s;
+    transition: 0.3s;
+    height: 0px;
+    width: 0px;
+}
+
+.hamburgerActive span:nth-child(3) {
+    transform: rotate(-45deg);
+    transition: ease 0.5s;
+}
+
+.menuActive {
+    transition: ease 0.5s;
+    width: 300px;
+}
+
+.menuActive .menuHamburger {
+    margin-left: 80%;
+    transition: ease 0.5s;
+}
+
+#menuSpacer {
+    background: #b893d6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: ease 0.5s;
+    cursor: pointer;
+}
+
+#menu {
+    transition: ease 0.5s;
+    box-shadow: 2px 0px 12px #b2c5d3;
+    height: Calc(100% - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b993d6+0,8ca6db+100 */
+    background: #b993d6; /* Old browsers */
+    background: -moz-linear-gradient(
+        top,
+        #b993d6 0%,
+        #8ca6db 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        top,
+        #b993d6 0%,
+        #8ca6db 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        to bottom,
+        #b993d6 0%,
+        #8ca6db 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b993d6', endColorstr='#8ca6db',GradientType=0 ); /* IE6-9 */
+}
+
+.menuItems {
+    width: 300px;
+    position: relative;
+    left: -300px;
+    transition: ease 0.5s;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+}
+
+.menuItems li {
+    height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.menuItems li:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.menuItems li:nth-child(1) {
+    border-top: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.menuItemsActive {
+    transition-delay: 0.3s;
+    transition: ease 0.5s;
+    left: 0px;
+}
