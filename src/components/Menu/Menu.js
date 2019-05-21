@@ -33,7 +33,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <div>
+            <div id="menuContainer">
                 <div
                     id="menuSpacer"
                     className="w-60px h-60px flex flex-direction-column align-items-center justify-content-center"

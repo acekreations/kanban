@@ -1,0 +1,20 @@
+[
+    {
+        "column_title": "Backlog",
+        "tasks": [
+            {
+                "body": "Nulla vitae elit libero, a pharetra augue.",
+                "color": "#89DC87"
+            }
+        ]
+    },
+    {
+        "column_title": "In Progress",
+        "tasks": [
+            {
+                "body": "Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                "color": "#89DC87"
+            }
+        ]
+    }
+]
