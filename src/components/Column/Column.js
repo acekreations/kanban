@@ -9,13 +9,14 @@ class Column extends Component {
                     <div className="dotMenu">
                         <img src="./images/dot-menu.svg" alt="menu" />
                     </div>
-                    <h2>Title</h2>
+                    <h2>{this.props.data.column_title}</h2>
                     <form>
                         <input type="text" placeholder="Create New Task" />
                     </form>
                 </div>
-                <TaskCard />
-                <TaskCard />
+                {this.props.data.tasks.map((task, key) => (
+                    <TaskCard key={key} data={task} />
+                ))}
             </div>
         );
     }

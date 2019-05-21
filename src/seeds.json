@@ -4,7 +4,7 @@
         "tasks": [
             {
                 "body": "Nulla vitae elit libero, a pharetra augue.",
-                "color": "#89DC87"
+                "color": "2"
             }
         ]
     },
@@ -13,7 +13,7 @@
         "tasks": [
             {
                 "body": "Nullam id dolor id nibh ultricies vehicula ut id elit.",
-                "color": "#89DC87"
+                "color": "1"
             }
         ]
     }
