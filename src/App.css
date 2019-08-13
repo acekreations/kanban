@@ -130,20 +130,16 @@ p {
     align-self: flex-start;
 }
 
-.column .card:last-child {
+.column .card {
     margin-bottom: 0px;
 }
 
-.column .card:first-child {
-    margin-bottom: 0px;
-}
-
-.dummyCard {
+.dropZone {
     width: 100%;
     height: 36px;
 }
 
-.dummyCardDrop::before {
+.dropZoneDrop::before {
     content: "";
     height: 5px;
     width: 100%;
@@ -157,6 +153,10 @@ p {
         rgba(140, 166, 219, 1) 0%,
         rgba(185, 147, 214, 1) 100%
     );
+}
+
+.column .dropZone:last-child {
+    background-color: #e8eef2;
 }
 
 #logoBar {

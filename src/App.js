@@ -17,18 +17,32 @@ class App extends Component {
         data = data.split(",");
         const colIndex = parseInt(data[0]);
         const taskIndex = parseInt(data[1]);
+        const dropTarget = this.state.dropTarget;
         const draggedTask = stateData[colIndex].tasks[taskIndex];
 
         stateData[colIndex].tasks.splice(taskIndex, 1);
 
-        if (this.state.dropTarget === null || this.state.dropTarget === -1) {
+        if (dropTarget === null || dropTarget === 0) {
+            //drop at start of list
             stateData[dropCol].tasks.unshift(draggedTask);
-        } else {
+        } else if (
+            colIndex !== dropCol ||
+            (colIndex === dropCol &&
+                dropTarget !== taskIndex &&
+                dropTarget !== taskIndex + 1)
+        ) {
+            //drop in dropTarget location
             stateData[dropCol].tasks.splice(
-                this.state.dropTarget + 1,
+                this.state.dropTarget,
                 0,
                 draggedTask
             );
+        } else if (dropTarget === 10000) {
+            //drop at end of list
+            stateData[dropCol].tasks.push(draggedTask);
+        } else {
+            //drop in same spot
+            stateData[dropCol].tasks.splice(taskIndex, 0, draggedTask);
         }
 
         this.setState({

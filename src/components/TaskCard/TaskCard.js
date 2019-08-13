@@ -18,20 +18,6 @@ class TaskCard extends Component {
         );
     }
 
-    handleDragEnter(e) {
-        e.currentTarget.classList.add("taskCardDrop");
-        const dataID = parseInt(e.target.getAttribute("data-id"));
-        this.props.updateDropTarget(dataID);
-    }
-
-    handleDragLeave(e) {
-        e.currentTarget.classList.remove("taskCardDrop");
-    }
-
-    handleDrop(e) {
-        e.currentTarget.classList.remove("taskCardDrop");
-    }
-
     render() {
         return (
             <div
@@ -41,11 +27,7 @@ class TaskCard extends Component {
                         : "card taskCard"
                 }
                 draggable="true"
-                data-id={this.props.taskIndex}
                 onDragStart={e => this.handleDragStart(e)}
-                onDragEnter={e => this.handleDragEnter(e)}
-                onDragLeave={e => this.handleDragLeave(e)}
-                onDrop={e => this.handleDrop(e)}
             >
                 <span
                     className={
