@@ -20,5 +20,18 @@
                 "color": "1"
             }
         ]
+    },
+    {
+        "column_title": "Completed",
+        "tasks": [
+            {
+                "body": "Nullam id dolor id nibh ultricies. Nullam id dolor id nibh ultricies vehicula ut id elit.Nullam id dolor id nibh ultricies. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                "color": "4"
+            },
+            {
+                "body": "Nulla vitae elit libero, a pharetra augue, a pharetra augue.",
+                "color": "3"
+            }
+        ]
     }
 ]

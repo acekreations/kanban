@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Menu extends Component {
+class Menu extends PureComponent {
     state = {
         menuIsClosed: true
     };

@@ -1,23 +1,21 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import TaskCard from "../TaskCard/TaskCard";
-import DropZone from "../DropZone/DropZone";
+import TaskDropZone from "../TaskDropZone/TaskDropZone";
 
-class Column extends Component {
-    handleDrop(e) {
-        e.preventDefault();
-        this.props.updateDragDrop(
-            e.dataTransfer.getData("text"),
-            this.props.index
-        );
-        e.dataTransfer.clearData();
+class Column extends PureComponent {
+    handleDragStart(e) {
+        e.stopPropagation();
+        e.dataTransfer.setData("text", `column,${this.props.columnIndex}}`);
+        this.props.updateDragType("column");
     }
 
     render() {
         return (
             <div
                 className="column"
-                onDrop={e => this.handleDrop(e)}
                 onDragOver={e => e.preventDefault()}
+                draggable="true"
+                onDragStart={e => this.handleDragStart(e)}
             >
                 <div className="card text-center">
                     <div className="dotMenu">
@@ -31,27 +29,31 @@ class Column extends Component {
 
                 {this.props.data.tasks.map((task, index) => (
                     <div key={index}>
-                        <DropZone
+                        <TaskDropZone
                             taskIndex={index}
-                            columnIndex={this.props.index}
+                            columnIndex={this.props.columnIndex}
                             updateDropTarget={this.props.updateDropTarget}
+                            updateDragDrop={this.props.updateDragDrop}
+                            updateDragType={this.props.updateDragType}
+                            dragType={this.props.dragType}
                         />
                         <TaskCard
                             taskIndex={index}
-                            columnIndex={this.props.index}
+                            columnIndex={this.props.columnIndex}
                             data={task}
-                            updateDropTarget={this.props.updateDropTarget}
+                            updateDragType={this.props.updateDragType}
                         />
-                        {/* make dropzone after last task */}
-                        {index === this.props.data.tasks.length - 1 && (
-                            <DropZone
-                                taskIndex={10000}
-                                columnIndex={this.props.index}
-                                updateDropTarget={this.props.updateDropTarget}
-                            />
-                        )}
                     </div>
                 ))}
+                {/* drop zone for moving to last position or for empty task lists */}
+                <TaskDropZone
+                    taskIndex={10000}
+                    columnIndex={this.props.columnIndex}
+                    updateDropTarget={this.props.updateDropTarget}
+                    updateDragDrop={this.props.updateDragDrop}
+                    updateDragType={this.props.updateDragType}
+                    dragType={this.props.dragType}
+                />
             </div>
         );
     }

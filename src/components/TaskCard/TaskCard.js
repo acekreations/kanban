@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class TaskCard extends Component {
+class TaskCard extends PureComponent {
     state = {
         dotMenuActive: false
     };
@@ -12,10 +12,12 @@ class TaskCard extends Component {
     }
 
     handleDragStart(e) {
+        e.stopPropagation();
         e.dataTransfer.setData(
             "text",
-            `${this.props.columnIndex},${this.props.taskIndex}`
+            `task,${this.props.columnIndex},${this.props.taskIndex}`
         );
+        this.props.updateDragType("task");
     }
 
     render() {
@@ -28,6 +30,7 @@ class TaskCard extends Component {
                 }
                 draggable="true"
                 onDragStart={e => this.handleDragStart(e)}
+                data-dragtype="task"
             >
                 <span
                     className={
