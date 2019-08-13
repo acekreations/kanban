@@ -71,6 +71,11 @@ p {
     cursor: move;
 }
 
+.taskCardDrag,
+.colDrag {
+    opacity: 0.5;
+}
+
 .taskCardDrop::after {
     content: "";
     height: 5px;
@@ -127,6 +132,8 @@ p {
     background-repeat: repeat-y;
     background-position: center;
     align-self: flex-start;
+    transition: all 0.3s;
+    position: relative;
 }
 
 .column .card {
@@ -155,7 +162,9 @@ p {
 }
 
 .column .taskDropZone:last-child {
-    background-color: #e8eef2;
+    position: absolute;
+    bottom: -36px;
+    left: 0px;
 }
 
 .columnDropZone {

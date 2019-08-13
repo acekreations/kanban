@@ -18,6 +18,11 @@ class TaskCard extends PureComponent {
             `task,${this.props.columnIndex},${this.props.taskIndex}`
         );
         this.props.updateDragType("task");
+        e.target.classList.add("taskCardDrag");
+    }
+
+    handleDragEnd(e) {
+        e.target.classList.remove("taskCardDrag");
     }
 
     render() {
@@ -30,6 +35,7 @@ class TaskCard extends PureComponent {
                 }
                 draggable="true"
                 onDragStart={e => this.handleDragStart(e)}
+                onDragEnd={e => this.handleDragEnd(e)}
                 data-dragtype="task"
             >
                 <span

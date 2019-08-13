@@ -1,12 +1,18 @@
 import React, { PureComponent } from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import TaskDropZone from "../TaskDropZone/TaskDropZone";
+import { labeledStatement } from "@babel/types";
 
 class Column extends PureComponent {
     handleDragStart(e) {
         e.stopPropagation();
         e.dataTransfer.setData("text", `column,${this.props.columnIndex}}`);
         this.props.updateDragType("column");
+        e.target.classList.add("colDrag");
+    }
+
+    handleDragEnd(e) {
+        e.target.classList.remove("colDrag");
     }
 
     render() {
@@ -16,6 +22,7 @@ class Column extends PureComponent {
                 onDragOver={e => e.preventDefault()}
                 draggable="true"
                 onDragStart={e => this.handleDragStart(e)}
+                onDragEnd={e => this.handleDragEnd(e)}
             >
                 <div className="card text-center">
                     <div className="dotMenu">
