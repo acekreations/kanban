@@ -6,6 +6,12 @@
     box-sizing: border-box;
     position: relative;
     margin-bottom: 36px;
+    transition: all 0.3s;
+}
+
+.cardUnactive {
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
 }
 
 .card .dotMenu {
@@ -13,10 +19,37 @@
     top: 2px;
     right: 5px;
     cursor: pointer;
+    z-index: 5;
 }
 
 .card .dotMenu img {
     width: 13px;
+}
+
+.card .dotMenuDropdown {
+    width: 100px;
+    background: #fff;
+    box-shadow: 0px 2px 8px rgba(178, 197, 211, 0.59);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 3px;
+    font-size: 14px;
+    opacity: 1;
+    transition: all 0.3s;
+    transform-origin: top right;
+}
+
+.card .dotMenuDropdown ul {
+    list-style-type: none;
+    margin: 20px 10px 10px 10px;
+    padding: 0px;
+}
+
+.card .dotMenuDropdown.dotMenuDropdownHide {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
 }
 
 .card h2,
@@ -32,6 +65,31 @@ p {
     width: 100%;
     box-sizing: border-box;
     font-size: 16px;
+}
+
+.taskCard {
+    cursor: move;
+}
+
+.taskCardDrop::after {
+    content: "";
+    height: 5px;
+    width: 100%;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin-bottom: -20px;
+    background: rgb(140, 166, 219);
+    background: linear-gradient(
+        90deg,
+        rgba(140, 166, 219, 1) 0%,
+        rgba(185, 147, 214, 1) 100%
+    );
+}
+
+.taskContent {
+    pointer-events: none;
 }
 
 .taskColorMarker {
@@ -69,10 +127,36 @@ p {
     background-image: url("/images/column-line.svg");
     background-repeat: repeat-y;
     background-position: center;
+    align-self: flex-start;
 }
 
 .column .card:last-child {
     margin-bottom: 0px;
+}
+
+.column .card:first-child {
+    margin-bottom: 0px;
+}
+
+.dummyCard {
+    width: 100%;
+    height: 36px;
+}
+
+.dummyCardDrop::before {
+    content: "";
+    height: 5px;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 16px;
+    border-radius: 4px;
+    background: rgb(140, 166, 219);
+    background: linear-gradient(
+        90deg,
+        rgba(140, 166, 219, 1) 0%,
+        rgba(185, 147, 214, 1) 100%
+    );
 }
 
 #logoBar {

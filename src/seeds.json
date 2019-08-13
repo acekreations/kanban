@@ -12,6 +12,10 @@
         "column_title": "In Progress",
         "tasks": [
             {
+                "body": "Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                "color": "1"
+            },
+            {
                 "body": "Nullam id dolor id nibh ultricies vehicula ut id elit.",
                 "color": "1"
             }
