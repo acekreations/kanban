@@ -95,6 +95,10 @@ class TaskCard extends PureComponent {
                             this.props.taskIndex
                         }`}
                         data={this.props.data}
+                        updateTask={this.props.updateTask}
+                        columnIndex={this.props.columnIndex}
+                        taskIndex={this.props.taskIndex}
+                        handleTaskDrawer={this.handleTaskDrawer.bind(this)}
                     />
                 )}
             </div>

@@ -91,6 +91,15 @@ class App extends Component {
         });
     }
 
+    updateTask(colID, taskID, body, color) {
+        let stateData = this.state.data;
+        stateData[colID].tasks[taskID].body = body;
+        stateData[colID].tasks[taskID].color = color;
+        this.setState({
+            data: stateData
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -123,6 +132,7 @@ class App extends Component {
                                     this
                                 )}
                                 updateDragType={this.updateDragType.bind(this)}
+                                updateTask={this.updateTask.bind(this)}
                             />
                             {index === this.state.data.length - 1 && (
                                 <ColumnDropZone

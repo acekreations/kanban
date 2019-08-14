@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import TaskDropZone from "../TaskDropZone/TaskDropZone";
-import { labeledStatement } from "@babel/types";
 
 class Column extends PureComponent {
     handleDragStart(e) {
@@ -49,6 +48,7 @@ class Column extends PureComponent {
                             columnIndex={this.props.columnIndex}
                             data={task}
                             updateDragType={this.props.updateDragType}
+                            updateTask={this.props.updateTask}
                         />
                     </div>
                 ))}

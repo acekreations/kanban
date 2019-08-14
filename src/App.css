@@ -69,7 +69,7 @@ textarea {
 }
 
 .taskCard {
-    cursor: move;
+    cursor: move !important;
     z-index: 1;
     transition: all 0.3s;
 }
@@ -203,6 +203,7 @@ textarea {
 
 .column .card {
     margin-bottom: 0px;
+    cursor: ew-resize;
 }
 
 .taskDropZone {

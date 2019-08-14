@@ -17,10 +17,26 @@ class TaskDrawer extends PureComponent {
     }
 
     handleTextareaInput(e) {
-        // e.preventDefault();
+        e.preventDefault();
         this.setState({
             textareaInput: e.target.value
         });
+    }
+
+    updateColor(color) {
+        this.setState({
+            color: color
+        });
+    }
+
+    handleSave() {
+        this.props.updateTask(
+            this.props.columnIndex,
+            this.props.taskIndex,
+            this.state.textareaInput,
+            this.state.color
+        );
+        this.props.handleTaskDrawer();
     }
 
     render() {
@@ -37,7 +53,8 @@ class TaskDrawer extends PureComponent {
                     {this.state.colorMarkers.map(index => (
                         <ColorMarker
                             key={index}
-                            colorClass={`colorMarker${index}`}
+                            colorClass={`${index}`}
+                            updateColor={this.updateColor.bind(this)}
                         >
                             {parseInt(this.state.color) === index && (
                                 <FontAwesomeIcon icon={faCheck} size="xs" />
@@ -45,7 +62,7 @@ class TaskDrawer extends PureComponent {
                         </ColorMarker>
                     ))}
                 </ul>
-                <button>Save</button>
+                <button onClick={this.handleSave.bind(this)}>Save</button>
             </div>
         );
     }
