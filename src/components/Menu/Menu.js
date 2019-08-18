@@ -47,9 +47,7 @@ class Menu extends PureComponent {
                 </div>
                 <div id="menu" className="w-60px">
                     <ul className="menuItems">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
+                        <li>Engineering</li>
                     </ul>
                 </div>
             </div>

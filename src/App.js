@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import data from "./seeds";
+import "dom-slider";
 
 //Components
 import Menu from "./components/Menu";
@@ -100,6 +101,14 @@ class App extends Component {
         });
     }
 
+    addTask(colID, body) {
+        let stateData = this.state.data;
+        stateData[colID].tasks.unshift({ body: body, color: 6 });
+        this.setState({
+            data: stateData
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -133,6 +142,7 @@ class App extends Component {
                                 )}
                                 updateDragType={this.updateDragType.bind(this)}
                                 updateTask={this.updateTask.bind(this)}
+                                addTask={this.addTask.bind(this)}
                             />
                             {index === this.state.data.length - 1 && (
                                 <ColumnDropZone

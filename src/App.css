@@ -71,7 +71,11 @@ textarea {
 .taskCard {
     cursor: move !important;
     z-index: 1;
-    transition: all 0.3s;
+    transition: all 0.2s;
+}
+
+.taskCard:hover {
+    transform: scale(1.01);
 }
 
 .taskCardDrag,
@@ -253,6 +257,35 @@ textarea {
         rgba(140, 166, 219, 1) 0%,
         rgba(185, 147, 214, 1) 100%
     );
+}
+
+#newColumnInput {
+    border: 2px solid #ccdde9;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: none;
+}
+
+#newColumnBtn {
+    height: 40px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(178, 197, 211, 0.59);
+    border: 0px solid #fff;
+    font-size: 16px;
+    padding: 10px 18px;
+    color: #c9c9c9;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#newColumnBtn:hover {
+    color: #cfceeb;
 }
 
 #logoBar {

@@ -3,6 +3,9 @@ import TaskCard from "../TaskCard/TaskCard";
 import TaskDropZone from "../TaskDropZone/TaskDropZone";
 
 class Column extends PureComponent {
+    state = {
+        textInput: ""
+    };
     handleDragStart(e) {
         e.stopPropagation();
         e.dataTransfer.setData("text", `column,${this.props.columnIndex}}`);
@@ -12,6 +15,21 @@ class Column extends PureComponent {
 
     handleDragEnd(e) {
         e.target.classList.remove("colDrag");
+    }
+
+    handleInput(e) {
+        e.preventDefault();
+        this.setState({
+            textInput: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.addTask(this.props.columnIndex, this.state.textInput);
+        this.setState({
+            textInput: ""
+        });
     }
 
     render() {
@@ -28,8 +46,13 @@ class Column extends PureComponent {
                         <img src="./images/dot-menu.svg" alt="menu" />
                     </div>
                     <h2>{this.props.data.column_title}</h2>
-                    <form>
-                        <input type="text" placeholder="Create New Task" />
+                    <form onSubmit={e => this.handleSubmit(e)}>
+                        <input
+                            value={this.state.textInput}
+                            onChange={e => this.handleInput(e)}
+                            type="text"
+                            placeholder="Create New Task"
+                        />
                     </form>
                 </div>
 

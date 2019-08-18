@@ -67,7 +67,7 @@ class TaskCard extends PureComponent {
                             this.props.data.color
                         }
                     />
-                    <div
+                    {/* <div
                         className="dotMenu"
                         onClick={() => this.handleDotMenu()}
                     >
@@ -86,7 +86,7 @@ class TaskCard extends PureComponent {
                             </li>
                             <li>Delete</li>
                         </ul>
-                    </div>
+                    </div> */}
                     <p className="taskContent">{this.props.data.body}</p>
                 </div>
                 {this.state.taskDrawerOpen && (
